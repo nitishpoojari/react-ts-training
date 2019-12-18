@@ -28,9 +28,20 @@ export class FullName extends Component {
   render() {
     person.firstName = this.props.FirstName;
     person.lastName = this.props.LastName;
+//SpreadOperator ...
+    var newObject = {...person, firstName:"Ramesh"}
+    let a = [1,2,3];
+    let b = [...a,2];
+    
+    let test = Object.assign({},newObject,{lastName:"Suresh"})
+
+    let {firstName,...other} = person;
+
     return (
       <div>
-        {this.state.greeting} {person.firstName} {person.lastName} <br />
+        {this.state.greeting} {newObject.firstName} {newObject.lastName} {b} {test.lastName} <br />
+        {firstName}
+        <br/>
         <button onClick={this.changeGreet }> Change Greeting</button>
       </div>
     );
